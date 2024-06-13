@@ -38,7 +38,6 @@ Feature flagging works well for frontend-heavy projects and net-new work, but it
 
 One potential solution is to use a **facade**. It can provide indirect access to your existing system and you can also use it to point to your new code using a feature flag. This is a pattern often found in the world of OOP (object-oriented programming) and might sound a bit dated, but the concept is actually very generalisable. In your case a facade might be as simple as a file or function that routes the data flow to the old or new solution.
 
-
 ## The crux of the tradeoff
 
 On paper (or... err, Google Doc), you will likely find that the overall estimate for final project delivery gets longer when taking the approach I've outlined here. This is the crux of the tradeoff and something that can be a hard sell in some organisations, especially ones that aren't engineering-driven. The thing is, given the average level of ~in~accuracy when it comes to engineering estimates is [an industry wide meme](https://xkcd.com/1658/), placing so much weight on the absolutes doesn't really make sense.
@@ -50,3 +49,4 @@ Meanwhile, splitting work into shorter-term discretely shippable units brings:
 - More manageable review, ship and debug cycles, producing a flywheel effect on productivity.
 - A shortened and externalised long tail of bugs and feedback to address at the "end" of the project.
 
+So, if by now if I haven't managed to convince you, maybe Lisa Karlin Curtis can. While writing this post, I discovered <a href="https://incident.io/blog/breaking-down-complex-projects">a similar treatise she penned on the incident.io engineering blog</a> with a more user-focussed lens. If it can work for early-stage teams and public companies, it can probably work for you too.
