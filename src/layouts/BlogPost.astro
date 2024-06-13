@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			main {
+				border-width: 0 0 0 3px;
+				border-style: solid;
+				border-image: linear-gradient(to bottom, #fff0, var(--text-color)) 1 100%;
+			}
+			article {
+				width: calc(100% - 2em);
+				max-width: 60ch;
+				margin: auto;
+				padding: 3em 3em 10em 3em;
+				font-weight: 350;
+				line-height: 1.7;
+			}
+			.title {
+				margin-bottom: 1em;
+				padding: 1em 0;
+				text-align: center;
+				line-height: 1;
+			}
+			.title h1 {
+				margin: 0 0 0.75em 0;
+			}
+			.date {
+				margin-bottom: 1em;
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+
+			@media (max-width: 800px) {
+				article {
+					padding: 0;
+				}
+
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article>
+				{heroImage && <div class="hero-image">
+					 <img width={1020} height={510} src={heroImage} alt="" />
+				</div>}
+				<div class="prose">
+					<div class="title">
+						<h1>{title}</h1>
+						<div class="date">
+							<FormattedDate date={pubDate} />
+							{
+								updatedDate && (
+									<div class="last-updated-on">
+										Last updated on <FormattedDate date={updatedDate} />
+									</div>
+								)
+							}
+						</div>
+						<hr />
+					</div>
+					<slot />
+				</div>
+			</article>
+		</main>
+	</body>
+</html>

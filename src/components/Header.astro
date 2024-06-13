@@ -1,0 +1,68 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+
+const { hideTitle } = Astro.props;
+---
+
+<style>
+	.hidden {
+		visibility: hidden;
+	}
+</style>
+
+<header>
+	<nav>
+		<h2 class={hideTitle ? 'hidden' : ''}><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: #000a;
+		backdrop-filter: blur(5px);
+		z-index: 1;
+		position: sticky;
+		top: 0;
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	header h2 {
+		margin: 0;
+		font-size: 1.2em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		font-family: 'Cabinet Grotesk', sans-serif;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		border-bottom: 2px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		border-bottom-color: var(--link-color);
+	}
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+
+	@media(max-width:370px) {
+		nav a {
+			padding: 1em 0.25em;
+		}
+	}
+</style>
