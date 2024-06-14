@@ -12,21 +12,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<style>
 			main {
 				display: flex;
-				width: 800px;
-				margin: 20vh auto;
+				width: 820px;
+				margin: 10vh auto;
 				align-items: center;
 			}
-			main::after {
-				content: 'HELLo',
-				width: 100px;
-				height: 100px;
-				background: red;
-				position: absolute;
-				top: 100px;
-				left: 100px;
-			}
 			h1 {
-				font-size: 5em;
+				font-size: 4.5em;
 				display: inline-block;
 				line-height: 0.5em;
 				margin-bottom: 0.5em;
@@ -46,12 +37,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				animation: blink 1s step-start 0s infinite;
 			}
 			.intro {
-				flex: 0 0 375px;
+				flex: 0 0 400px;
 			}
 			.intro h2 {
 				font-weight: 400;
+				font-size: 1.25em;
+				margin-bottom: 0;
 			}
-			@media (max-width: 800px) {
+			@media (max-width: 840px) {
 				main {
 					margin-top: 0;
 					width: 100%;
@@ -67,10 +60,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					margin-top: 2em;
 					font-size: 1.25em;
 				}
-
 				.intro {
 					flex-basis: unset;
-					margin: 3em 0;
+					margin: 2.5em 0;
 				}
 
 			}

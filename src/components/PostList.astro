@@ -14,15 +14,17 @@ const posts = (await getCollection('blog')).sort(
     .posts {
         max-width: 720px;
     }
+    .posts table {
+        width: fit-content;
+        border-collapse: separate;
+        border-spacing: 0 0.75em;
+    }
     .date {
-        width: 10ch;
+        width: 9ch;
         font-weight: 300;
     }
     tr {
         vertical-align: top;
-        display: inline-block;
-        padding: 0.2em 0;
-        
     }
    
     @media (max-width: 400px) {
@@ -42,7 +44,6 @@ const posts = (await getCollection('blog')).sort(
 <section class="posts">
     <h3>{title ?? 'Posts'}</h3>
     <table>
-        <thead><th></th><th></th></thead>
         <tbody>
         {
             posts.slice(0, Math.min(limit ?? Number.MAX_SAFE_INTEGER, posts.length)).map((post) => (

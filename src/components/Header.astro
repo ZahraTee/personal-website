@@ -15,7 +15,6 @@ const { hideTitle } = Astro.props;
 	<nav>
 		<h2 class={hideTitle ? 'hidden' : ''}><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
 		</div>
@@ -27,6 +26,7 @@ const { hideTitle } = Astro.props;
 		padding: 0 1em;
 		background: #000a;
 		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
 		z-index: 1;
 		position: sticky;
 		top: 0;
@@ -42,7 +42,7 @@ const { hideTitle } = Astro.props;
 		text-decoration: none;
 	}
 	nav {
-		font-family: 'Cabinet Grotesk', sans-serif;
+		font-family: 'Cabinet Grotesk', Trebuchet MS, Helvetica, sans-serif;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -60,7 +60,7 @@ const { hideTitle } = Astro.props;
 		display: flex;
 	}
 
-	@media(max-width:370px) {
+	@media(max-width: 800px) {
 		nav a {
 			padding: 1em 0.25em;
 		}

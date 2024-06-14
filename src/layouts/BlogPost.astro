@@ -17,10 +17,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				border-width: 0 0 0 3px;
 				border-style: solid;
 				border-image: linear-gradient(to bottom, #fff0, var(--text-color)) 1 100%;
+				font-size: 16px;
 			}
 			article {
 				width: calc(100% - 2em);
-				max-width: 60ch;
+				max-width: 55ch;
 				margin: auto;
 				padding: 3em 3em 10em 3em;
 				font-weight: 350;
@@ -41,8 +42,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			.last-updated-on {
 				font-style: italic;
 			}
+			img {
+				text-align: center;
+			}
 
-			@media (max-width: 800px) {
+			@media (max-width: 820px) {
 				article {
 					padding: 0;
 				}
