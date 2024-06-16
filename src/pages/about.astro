@@ -41,15 +41,15 @@ const posts = (await getCollection('blog')).sort(
 				border-radius: 100px;
 				position: absolute;
 				z-index: 0;
-				left: calc(30% - 250px);
-				top: 15%;
+				left: calc(((100% - 45ch) / 2) - 100px);
+				top: 5em;
 				height: 400px;
 				filter: blur(0.1px) sepia(0.5) brightness(0.4) contrast(0.9);
 				mix-blend-mode: lighten;
 			}
-			section {
+			.about {
 				max-width: 45ch;
-				margin-left: 30%;
+				margin-left: calc(((100% - 45ch) / 2) + 90px);
 				line-height: 1.6;
 			}
 			.callout {
@@ -61,13 +61,12 @@ const posts = (await getCollection('blog')).sort(
 				border-radius: 1em;
 				display: block;
 			}
-			@media (max-width: 820px) {
-				section {
-					margin: auto;
-					padding-top: 1em;
-				}
+			@media (max-width: 720px) {
 				img {
 					visibility: hidden;
+				}
+				.about {
+					margin: 0 auto;
 				}
 			}
 		</style>
@@ -75,7 +74,7 @@ const posts = (await getCollection('blog')).sort(
 	<body class="index">
 		<Header />
 		<main>
-			<section>
+			<section class="about">
 				<h2>Hello... Is it me you're looking for?</h2>
 				<p class="callout">📣 Right now, I'm taking a breather and pursuing some of my technical interests but am tentatively considering new opportunities. Want to work with me? Hit me up via <a href="mailto:zahratee@gmail.com">email</a> or <a href="https://www.linkedin.com/in/zahratraboulsi/">LinkedIn</a>.
 				<p>Most recently, I worked on frontend infrastructure at <a href="https://amplitude.com/">Amplitude</a> after a couple of years in the Data Governance team, where I garnered a reputation for productivity and esoteric bug-slaying. I've also worked at companies like <a href="https://www.bloomberg.com/professional/products/bloomberg-terminal/access/bloomberg-professional-app/">Bloomberg</a>, <a href="

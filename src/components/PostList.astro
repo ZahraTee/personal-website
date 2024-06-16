@@ -13,11 +13,17 @@ const posts = (await getCollection('blog')).sort(
 <style>
     .posts {
         max-width: 720px;
+        width: fit-content;
+        max-width: 100%;
+        margin: auto;
     }
     .posts table {
         width: fit-content;
         border-collapse: separate;
         border-spacing: 0 0.75em;
+    }
+    h3 {
+        display: inline-block;
     }
     .date {
         width: 9ch;
@@ -26,17 +32,23 @@ const posts = (await getCollection('blog')).sort(
     tr {
         vertical-align: top;
     }
+
+    @media (max-width: 720px) {
+        .posts {
+            width: 500px;
+        }
+        td {
+            font-size: 0.875em;
+            vertical-align: middle;
+        }
+    }
    
     @media (max-width: 400px) {
+        .date {
+            display: none;
+        }
         li {
             flex-direction: column;
-        }
-        .date {
-            font-size: 0.8em;
-            width: 10ch;
-        }
-        ul li a {
-            margin-left: 0;
         }
     }
 </style>

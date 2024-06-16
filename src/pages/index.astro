@@ -12,8 +12,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		<style>
 			main {
 				display: flex;
-				width: 820px;
-				margin: 10vh auto;
+				width: calc(720px - 2em);
+				max-width: 100%;
+				margin: 25vh auto;
 				align-items: center;
 			}
 			h1 {
@@ -37,34 +38,36 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				animation: blink 1s step-start 0s infinite;
 			}
 			.intro {
-				flex: 0 0 400px;
+				flex: 0 0 340px;
 			}
 			.intro h2 {
 				font-weight: 400;
 				font-size: 1.25em;
 				margin-bottom: 0;
+				color: #deedeed0;
 			}
-			@media (max-width: 840px) {
+			@media (max-width: 720px) {
 				main {
-					margin-top: 0;
-					width: 100%;
+					width: calc(100% - 3em);
+					margin: 3em 1.5em;
 					flex-direction: column;
 				}
 				.intro h1 {
 					font-size: 3.5em;
+					min-width: 7ch;
 				}
 				.intro h2 {
-					font-size: 1.5em;
+					font-size: 1.25em;
 				}
 				.intro h3 {
 					margin-top: 2em;
 					font-size: 1.25em;
 				}
 				.intro {
-					flex-basis: unset;
-					margin: 2.5em 0;
+					max-width: 500px;
+					margin: 0 0 2.5em 0;
+					flex: 0;
 				}
-
 			}
 		</style>
 	</head>
@@ -75,7 +78,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<h1>Zahra Traboulsi</h1>
 				<h2>Software engineering, design and miscellaneous pursuits</h2>
 			</section>
-			<PostList title="Recent Posts" limit={4}/>
+			<PostList title="Latest Posts" limit={4}/>
 		</main>
 	</body>
 </html>

@@ -3,7 +3,6 @@ import BaseHead from '../../components/BaseHead.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
-import FormattedDate from '../../components/FormattedDate.astro';
 import PostList from '../../components/PostList.astro';
 
 const posts = (await getCollection('blog')).sort(
@@ -16,10 +15,6 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
-			main {
-				width: 100%;
-				margin: auto;
-			}
 			.title {
 				font-size: 1.25em;
 				margin: 0;
