@@ -5,8 +5,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
+	site: 'https://zahra.dev',
 	integrations: [mdx(), sitemap()],
 	defaultLocale: "en",
-    locales: ["ar", "en",],
+    locales: ["en"],
 });
