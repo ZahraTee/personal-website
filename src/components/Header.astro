@@ -1,6 +1,7 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import { ViewTransitions } from 'astro:transitions';
 
 const { hideTitle } = Astro.props;
 ---
@@ -83,7 +84,7 @@ const { hideTitle } = Astro.props;
 		}
 	}
 </style>
-
+<ViewTransitions />
 <header class={hideTitle ? 'mini' : ''}>
 	<nav>
 		{!hideTitle && <h2><a href="/">{SITE_TITLE}</a></h2>}
