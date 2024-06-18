@@ -4,7 +4,7 @@ description: ''
 pubDate: 'Jun 15 2024'
 ---
 
-In a post-ZIRP industry where many engineers are being pressed to build and ship things faster, _faster_, **_fasteeeer_**, it's increasingly easy to end up careering towards a project's end with your sights set solely on the grand finale (or "the deadline"), when all your efforts will go out to your users. This is a trap: the allure of setting to work ASAP and making early progress on development covers up the eventualities of the frantic rush, extended deadlines and a risky release.
+In a post-ZIRP (zero interest-rate policy) tech industry where many engineers are being pressed to build and ship things faster, _faster_, **_fasteeeer_**, it's increasingly easy to end up careering towards a project's end with your sights set solely on the grand finale (or "the deadline"), when all your efforts will go out to your users. This is a trap: the allure of setting to work ASAP and making early progress on development covers up the eventualities of the frantic rush, extended deadlines and a risky release.
 
 If you're used to this way of working, it requires conscious practice and effort to break out of. The alternative is to ship incrementally. Fortunately, building the ability to do this is like training your core muscles – it takes work, but once you do, day-to-day tasks mysteriously get easier and a lot of those nagging pains that sometimes come with age disappear.
 
