@@ -1,88 +1,107 @@
-
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-import { getCollection } from 'astro:content';
+import BaseHead from "../components/BaseHead.astro";
+import Callout from "../components/Callout.astro";
+import Header from "../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { getCollection } from "astro:content";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				font-size: 16px;
-			}
-			h1 {
-				font-size: 5em;
-			}
-			@keyframes blink {
-				50% {
-					opacity: 0;
-				}
-			}
-			h1::after {
-				content: '';
-				margin-left: 0.1em;
-				display: inline-block;
-				width: 0.1em;
-				height: 1em;
-				position: relative;
-				bottom: -0.1em;
-				background-color: var(--link-color);
-				animation: blink 1s step-start 0s infinite;
-			}
-			img {
-				border-radius: 100px;
-				position: absolute;
-				z-index: 0;
-				left: calc(((100% - 45ch) / 2) - 100px);
-				top: 5em;
-				height: 400px;
-				filter: blur(0.1px) sepia(0.5) brightness(0.4) contrast(0.9);
-				mix-blend-mode: lighten;
-			}
-			.about {
-				max-width: 45ch;
-				margin-left: calc(((100% - 45ch) / 2) + 90px);
-				line-height: 1.6;
-			}
-			.callout {
-				background-color: #254ddc;
-				position: relative;
-				z-index: 1;
-				line-height: 1.5;
-				padding: 1em;
-				border-radius: 1em;
-				display: block;
-			}
-			@media (max-width: 720px) {
-				img {
-					visibility: hidden;
-				}
-				.about {
-					margin: 0 auto;
-				}
-			}
-		</style>
-	</head>
-	<body class="index">
-		<Header />
-		<main>
-			<section class="about">
-				<h2>Hello... Is it me you're looking for?</h2>
-				<p>I'm a senior software engineer based in London, UK with 8 years of experience. I work across web development stacks but am most at home with TypeScript and React.</p>
-				<p class="callout">📣 Right now, I'm taking a breather and pursuing some of my technical interests but am tentatively considering new opportunities. Want to work with me? Hit me up via <a href="mailto:zahratee@gmail.com">email</a> or <a href="https://www.linkedin.com/in/zahratraboulsi/">LinkedIn</a>.
-				
-				<p>Most recently, I worked on frontend infrastructure at <a href="https://amplitude.com/">Amplitude</a> after a couple of years in the Data Governance team, where I garnered a reputation for productivity and esoteric bug-slaying. I've also worked at companies like <a href="https://www.bloomberg.com/professional/products/bloomberg-terminal/access/bloomberg-professional-app/">Bloomberg</a>, <a href="https://www.synthace.com">Synthace</a> and <a href="https://www.hashicorp.com/">HashiCorp</a>. Before all that, I studied Computer Science at UCL.</p>
-				<p>While I'm at home with sinking my teeth into interesting technical problems, I also like to zoom out and think strategically about how to cultivate effective engineering practice and culture inside organisations as they grow and shift over time. You can find some writing on that on my <a href="/blog">blog.</a></p>
-			</section>
-		</main>
-		<img src="/moi.jpg" />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main {
+        font-size: 16px;
+      }
+      h1 {
+        font-size: 5em;
+      }
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+      h1::after {
+        content: "";
+        margin-left: 0.1em;
+        display: inline-block;
+        width: 0.1em;
+        height: 1em;
+        position: relative;
+        bottom: -0.1em;
+        background-color: var(--link-color);
+        animation: blink 1s step-start 0s infinite;
+      }
+      img {
+        border-radius: 100px;
+        position: absolute;
+        z-index: -1;
+        left: calc(((100% - 45ch) / 2) - 100px);
+        top: 5em;
+        height: 400px;
+        filter: blur(0.1px) sepia(0.5) brightness(0.4) contrast(0.9);
+        mix-blend-mode: lighten;
+      }
+      .about {
+        max-width: 45ch;
+        margin-left: calc(((100% - 45ch) / 2) + 90px);
+        line-height: 1.6;
+      }
+
+      @media (max-width: 720px) {
+        img {
+          visibility: hidden;
+        }
+        .about {
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body class="index">
+    <Header />
+    <main>
+      <section class="about">
+        <h2>Hello... Is it me you're looking for?</h2>
+        <p>
+          I'm a senior software engineer based in London, UK with 8 years of
+          experience. I work across the web development stack but work most with
+          TypeScript and React.
+        </p>
+        <Callout
+          >📣 Right now, I'm taking a breather and pursuing some of my technical
+          interests but am tentatively considering new opportunities. Want to
+          work with me? Hit me up via <a href="mailto:zahratee@gmail.com"
+            >email</a
+          > or <a href="https://www.linkedin.com/in/zahratraboulsi/">LinkedIn</a
+          >.</Callout
+        >
+        <p>
+          Most recently, I worked on frontend infrastructure at <a
+            href="https://amplitude.com/">Amplitude</a
+          > after a couple of years in the Data Governance team, where I garnered
+          a reputation for productivity and esoteric bug-slaying. I've also worked
+          at companies like <a
+            href="https://www.bloomberg.com/professional/products/bloomberg-terminal/access/bloomberg-professional-app/"
+            >Bloomberg</a
+          >, <a href="https://www.synthace.com">Synthace</a> and <a
+            href="https://www.hashicorp.com/">HashiCorp</a
+          >. Before all that, I studied Computer Science at UCL.
+        </p>
+        <p>
+          While I'm at home with sinking my teeth into interesting technical
+          problems, I also like to zoom out and think strategically about how to
+          cultivate effective engineering practice and culture inside
+          organisations as they grow and shift over time. You can find some
+          writing on that on my <a href="/blog">blog.</a>
+        </p>
+      </section>
+    </main>
+    <img src="/moi.jpg" />
+  </body>
 </html>
