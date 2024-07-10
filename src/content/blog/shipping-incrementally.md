@@ -1,7 +1,7 @@
 ---
-title: 'Shipping incrementally'
-description: ''
-pubDate: 'Jun 15 2024'
+title: "Shipping incrementally"
+description: "On software engineering's equivalent of maintaining a sufficient fibre intake."
+pubDate: "Jun 15 2024"
 ---
 
 In a post-ZIRP (zero interest-rate policy) tech industry where many engineers are being pressed to build and ship things faster, _faster_, **_fasteeeer_**, it's increasingly easy to end up careering towards a project's end with your sights set solely on the grand finale (or "the deadline"), when all your efforts will go out to your users. This is a trap: the allure of setting to work ASAP and making early progress on development covers up the eventualities of the frantic rush, extended deadlines and a risky release.
@@ -27,6 +27,7 @@ So what should a milestone look like? There is no One True Way to split up a pro
 - If you are migrating to a new data model or making database schema changes, splitting that process up into several steps that allow the old and new shapes of the data to co-exist while the project is underway can remove the need for a hard cut-over while supporting changes further up the stack that rely on them.
 
 Here are some suggestions for what a useful milestone might look like in your team:
+
 - It should be well demarcated with a clear definition of when it is complete. Dependencies between one milestone and a previous one are fine, but if the project needs to be unavoidably paused for a month or two between one milestone finishing and the next starting, it shouldn't leave your system in an unmanageable state.
 - You should feel comfortable giving a rough estimate of how much effort or time it will take to tackle it. If not, you probably need to do a time-boxed exploration into it first.
 - It should not be too fine-grained, these are not supposed to be JIRA ticket-level tasks. There should be some sort of meaningful functionality or situation change involved.
@@ -41,7 +42,7 @@ Getting code into production as early as possible is one of the most reliable wa
 
 Decoupling deployment from release with feature flags also means you can ship smaller units of code at a time which makes for easier and more effective code reviews (that will probably be completed quicker too), as well as making it easier to rollback and debug changes that aren't behaving as expected one rolled out.
 
-While feature flagging works well for frontend-heavy projects and new features, sometimes it won't be enough. What if you need to continue to support an existing feature or service while making major changes to critical pieces of code or dependencies that affect a large area of your application? 
+While feature flagging works well for frontend-heavy projects and new features, sometimes it won't be enough. What if you need to continue to support an existing feature or service while making major changes to critical pieces of code or dependencies that affect a large area of your application?
 
 One potential solution is to use a **facade**. It can provide indirect access to your existing system and you can also use it to point to your new code using a feature flag. This is a pattern often found in the world of OOP (object-oriented programming) and might sound dated, but the concept is generalisable. Perhaps in your case a facade could be as simple as a file or function that routes the flow of code or data to the old or new solution, depending on a feature flag or other logic.
 
@@ -56,7 +57,6 @@ If you're not familiar with database views, they are queries that act like virtu
 On paper (or Google doc), you will likely find that the overall estimate for final project delivery gets longer when taking the approach I've outlined here, as opposed to the one you might have given without taking this approach. While this headline of needing more time will be a hard sell in some organisations, especially ones that aren't engineering-driven, the reality is that you may end up completing the project faster. That may seem counter-intuitive given the overheads: the additional planning and extra engineering effort required to support this working. In practice, though, continually integrating the code into production increases momentum and getting feedback earlier pulls forward a lot of the fixes that otherwise would've been left until the end of the project or after it shipped, as well as avoiding a need for any project-level reverts.
 
 Additionally, given the average level of ~in~accuracy when it comes to engineering estimates is <a href="https://xkcd.com/1658/" target="_blank">an industry wide meme</a>, placing so much weight on the absolutes doesn't really make sense. That doesn't mean we should abandon hope of ever doing a passable job of estimating software projects! In fact, splitting up the work actually makes giving an accurate initial estimate easier, and it is also easier to recalibrate if need be as the project progresses as <a href="https://jacobian.org/">Jacob Kaplan-Moss</a> notes in <a href="https://jacobian.org/2021/may/20/estimation/" target="_blank">this post</a> from his series on software estimation.
-
 
 ## Rounding up
 
