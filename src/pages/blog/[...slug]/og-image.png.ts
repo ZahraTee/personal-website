@@ -9,7 +9,7 @@ interface Props {
   props: { post: CollectionEntry<"blog"> };
 }
 
-export const GET: APIRoute<Props> = async function get({ props }: Props) {
+export const GET = async function get({ props }: Props) {
   const cgBoldFontData = await fs.readFile(
     "./public/fonts/CabinetGrotesk-Bold.woff"
   );
