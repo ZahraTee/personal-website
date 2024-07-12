@@ -40,7 +40,7 @@ While planning milestones, it's also important to consider the different tools a
 
 Getting code into production as early as possible is one of the most reliable ways to de-risk deployment. **Feature flags** are a popular tool since they allow you to do this without disrupting your users before your changes are ready for prime-time. Some feature flagging solutions will allow you to target different environments, so your teammates can try things out on staging. You may even be able to target individual users, meaning you can ship to alpha testers from your user base and get feedback as you build and ship.
 
-Decoupling deployment from release with feature flags also means you can ship smaller units of code at a time which makes for easier and more effective code reviews (that will probably be completed quicker too), as well as making it easier to rollback and debug changes that aren't behaving as expected one rolled out.
+Decoupling deployment from release with feature flags also means you can ship smaller units of code at a time which makes for easier and more effective code reviews (that will probably be completed quicker too), as well as making it easier to rollback and debug changes that aren't behaving as expected once rolled out.
 
 While feature flagging works well for frontend-heavy projects and new features, sometimes it won't be enough. What if you need to continue to support an existing feature or service while making major changes to critical pieces of code or dependencies that affect a large area of your application?
 
