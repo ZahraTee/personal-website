@@ -29,7 +29,7 @@ export const GET = async function get({ props }: Props) {
       weight: 600,
     },
     maxWidth: 580,
-    maxHeight: 350,
+    maxHeight: 320,
   });
 
   const svg = await satori(
