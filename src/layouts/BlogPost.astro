@@ -4,11 +4,16 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import Callout from "../components/Callout.astro";
+import { getReadingTime } from "../utils/getReadingTime"
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = {
+  body: CollectionEntry<"blog">["body"]
+} & CollectionEntry<"blog">["data"];
 
 const ogImage = "og-image.png";
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, body } = Astro.props;
+
+const readingTime = getReadingTime(body);
 ---
 
 <html lang="en">
@@ -38,15 +43,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         text-align: center;
         line-height: 1;
       }
-
       .title h1 {
         margin: 0 0 0.75em 0;
       }
-      .date {
+      .details {
         margin-bottom: 1em;
+        display: flex;
+        justify-content: center;
+      }
+      :global(.details time, .details span) {
+        margin-right: 0.5em;
+      }
+      :global(.details:last-child) {
+        margin-right: 0;
       }
       .last-updated-on {
-        font-style: italic;
+        font-style: oblique;
       }
 
       img {
@@ -115,21 +127,26 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Header />
     <main>
       <article>
-        <div class="prose">
-          <div class="title">
-            <h1>{title}</h1>
-            <div class="date">
-              <FormattedDate date={pubDate} />
-              {
-                updatedDate && (
+        <div class="title">
+          <h1>{title}</h1>
+          <div class="details">
+            <FormattedDate date={pubDate} />
+            {
+              updatedDate && (
+                <>
+                  <span>•</span>
                   <div class="last-updated-on">
                     Last updated on <FormattedDate date={updatedDate} />
                   </div>
-                )
-              }
-            </div>
-            <hr />
+                </>
+              )
+            }
+            <span>•</span>
+            <span>{readingTime}</span>
           </div>
+          <hr />
+        </div>
+        <div class="prose">
           <slot />
         </div>
         <hr />
