@@ -38,6 +38,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         text-align: center;
         line-height: 1;
       }
+
       .title h1 {
         margin: 0 0 0.75em 0;
       }
@@ -47,12 +48,56 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       .last-updated-on {
         font-style: italic;
       }
+
       img {
         text-align: center;
       }
 
       .prose {
         margin-bottom: 2em;
+      }
+      
+
+      /** Heading anchor, positioned due to the link itself */
+      :global(.anchor) {
+        position: relative;
+        left: -1em;
+        z-index: 0;
+      }
+
+      /** The link next to heading anchors */
+      :global(a.anchor-link) {
+        margin-right: 0.25em;
+        visibility: hidden;
+        color: var(--link-color);
+        border: unset;
+      }
+
+      /** Show the heading anchor link only on hover */
+      :global(.anchor:hover a.anchor-link) {
+        visibility: visible;
+      }
+
+      :global(.anchor:before) {
+        /**
+        * This styling ensures anchor headings are positioned under the
+        * header when navigated to.
+        * calc(gap above header + header height + gap below header)
+        */
+        margin-top: calc((1.5em + 37px + 1em) * -1);
+        height: calc(1.5em + 37px + 1em);
+        display: block;
+        content: "";
+        visibility: hidden;
+      }
+
+        /**
+        * To prevent the .anchor:before element from blocking other
+        * content we might want to be interactable.
+        */
+      :global(.prose *:not(h1, h2, h3, h4, h5, h6)) {
+        position: relative;
+        z-index: 1;
       }
 
       @media (max-width: 720px) {
@@ -70,13 +115,6 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <Header />
     <main>
       <article>
-        {
-          heroImage && (
-            <div class="hero-image">
-              <img width={1020} height={510} src={heroImage} alt="" />
-            </div>
-          )
-        }
         <div class="prose">
           <div class="title">
             <h1>{title}</h1>
