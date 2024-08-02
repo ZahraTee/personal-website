@@ -1,11 +1,11 @@
 {
   "name": "blog",
-  "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build:rss": "npx ts-node ./src/utils/generate-atom-feed.ts",
+    "build": "astro check && astro build && pnpm run build:rss",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -14,16 +14,22 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/markdown-remark": "^5.2.0",
     "@astrojs/mdx": "^3.0.1",
-    "@astrojs/rss": "^4.0.6",
     "@astrojs/sitemap": "^3.1.5",
+    "@types/markdown-it": "^14.1.2",
+    "@types/sanitize-html": "^2.11.0",
     "astro": "^4.9.2",
+    "fast-glob": "^3.3.2",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0",
     "mdast-util-from-markdown": "^2.0.1",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
+    "sanitize-html": "^2.13.0",
     "satori": "^0.10.14",
     "sharp": "^0.33.4",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "xmlbuilder2": "^3.1.1"
   }
 }
