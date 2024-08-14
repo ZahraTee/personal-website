@@ -44,7 +44,7 @@ const { title, description, image = "og-image.png" } = Astro.props;
   rel="alternate"
   type="application/rss+xml"
   title="Zahra Traboulsi"
-  href={`${Astro.site}/rss.xml`}
+  href={new URL("atom.xml", Astro.site)}
 />
 
 <!-- Primary Meta Tags -->
