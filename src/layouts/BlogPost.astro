@@ -3,11 +3,10 @@ import type { CollectionEntry } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import Callout from "../components/Callout.astro";
 import { getReadingTime } from "../utils/getReadingTime";
 
 type Props = {
-  body: CollectionEntry<"blog">["body"];
+    body: CollectionEntry<"blog">["body"];
 } & CollectionEntry<"blog">["data"];
 
 const ogImage = "og-image.png";
@@ -17,144 +16,149 @@ const readingTime = getReadingTime(body);
 ---
 
 <html lang="en">
-  <head>
-    <BaseHead title={title} description={description} image={ogImage} />
-    <style>
-      main {
-        border-width: 0 0 0 3px;
-        border-style: solid;
-        border-image: linear-gradient(to bottom, #fff0, var(--link-color)) 1
-          100%;
-        font-size: 16px;
-        margin: 3em 0 0 0;
-        padding: 0 1.5em 3em 1.5em;
-      }
-      article {
-        width: calc(100% - 2em);
-        max-width: 55ch;
-        margin: auto;
-        padding: 3em 3em 10em 3em;
-        font-weight: 350;
-        line-height: 1.7;
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.75em 0;
-      }
-      .details {
-        margin-bottom: 1em;
-        display: flex;
-        justify-content: center;
-      }
-      :global(.details time, .details span) {
-        margin-right: 0.5em;
-      }
-      :global(.details:last-child) {
-        margin-right: 0;
-      }
-      .last-updated-on {
-        font-style: oblique;
-      }
+    <head>
+        <BaseHead title={title} description={description} image={ogImage} />
+        <style>
+            main {
+                border-width: 0 0 0 3px;
+                border-style: solid;
+                border-image: linear-gradient(
+                        to bottom,
+                        #fff0,
+                        var(--link-color)
+                    )
+                    1 100%;
+                font-size: 16px;
+                margin: 3em 0 0 0;
+                padding: 0 1.5em 3em 1.5em;
+            }
+            article {
+                width: calc(100% - 2em);
+                max-width: 55ch;
+                margin: auto;
+                padding: 3em 3em 10em 3em;
+                font-weight: 350;
+                line-height: 1.7;
+            }
+            .title {
+                margin-bottom: 1em;
+                padding: 1em 0;
+                text-align: center;
+                line-height: 1;
+            }
+            .title h1 {
+                margin: 0 0 0.75em 0;
+            }
+            .details {
+                margin-bottom: 1em;
+                display: flex;
+                justify-content: center;
+            }
+            :global(.details time, .details span) {
+                margin-right: 0.5em;
+            }
+            :global(.details:last-child) {
+                margin-right: 0;
+            }
+            .last-updated-on {
+                font-style: oblique;
+            }
 
-      img {
-        text-align: center;
-      }
+            img {
+                text-align: center;
+            }
 
-      .prose {
-        margin-bottom: 2em;
-      }
+            .prose {
+                margin-bottom: 2em;
+            }
 
-      /** Heading anchor, positioned due to the link itself */
-      :global(.anchor) {
-        position: relative;
-        left: -1em;
-        z-index: 0;
-      }
+            /** Heading anchor, positioned due to the link itself */
+            :global(.anchor) {
+                position: relative;
+                left: -1em;
+                z-index: 0;
+            }
 
-      /** The link next to heading anchors */
-      :global(a.anchor-link) {
-        margin-right: 0.25em;
-        visibility: hidden;
-        color: var(--link-color);
-        border: unset;
-      }
+            /** The link next to heading anchors */
+            :global(a.anchor-link) {
+                margin-right: 0.25em;
+                visibility: hidden;
+                color: var(--link-color);
+                border: unset;
+            }
 
-      /** Show the heading anchor link only on hover */
-      :global(.anchor:hover a.anchor-link) {
-        visibility: visible;
-      }
+            /** Show the heading anchor link only on hover */
+            :global(.anchor:hover a.anchor-link) {
+                visibility: visible;
+            }
 
-      :global(.anchor:before) {
-        /**
+            :global(.anchor:before) {
+                /**
         * This styling ensures anchor headings are positioned under the
         * header when navigated to.
         * calc(gap above header + header height + gap below header)
         */
-        margin-top: calc((1.5em + 37px + 1em) * -1);
-        height: calc(1.5em + 37px + 1em);
-        display: block;
-        content: "";
-        visibility: hidden;
-      }
+                margin-top: calc((1.5em + 37px + 1em) * -1);
+                height: calc(1.5em + 37px + 1em);
+                display: block;
+                content: "";
+                visibility: hidden;
+            }
 
-      /**
+            /**
         * To prevent the .anchor:before element from blocking other
         * content we might want to be interactable.
         */
-      :global(.prose *:not(h1, h2, h3, h4, h5, h6)) {
-        position: relative;
-        z-index: 1;
-      }
-
-      @media (max-width: 720px) {
-        article {
-          padding: 0;
-        }
-        .prose {
-          font-size: 18px;
-        }
-        :global(.anchor) {
-          left: 0;
-        }
-        :global(.anchor-link) {
-          display: none;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <Header />
-    <main>
-      <article>
-        <div class="title">
-          <h1>{title}</h1>
-          <div class="details">
-            <FormattedDate date={pubDate} />
-            {
-              updatedDate && (
-                <>
-                  <span>•</span>
-                  <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
-                  </div>
-                </>
-              )
+            :global(.prose *:not(h1, h2, h3, h4, h5, h6)) {
+                position: relative;
+                z-index: 1;
             }
-            <span>•</span>
-            <span>{readingTime}</span>
-          </div>
-          <hr />
-        </div>
-        <div class="prose">
-          <slot />
-        </div>
-      </article>
-    </main>
-  </body>
+
+            @media (max-width: 720px) {
+                article {
+                    padding: 0;
+                }
+                .prose {
+                    font-size: 18px;
+                }
+                :global(.anchor) {
+                    left: 0;
+                }
+                :global(.anchor-link) {
+                    display: none;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <Header />
+        <main>
+            <article>
+                <div class="title">
+                    <h1>{title}</h1>
+                    <div class="details">
+                        <FormattedDate date={pubDate} />
+                        {
+                            updatedDate && (
+                                <>
+                                    <span>•</span>
+                                    <div class="last-updated-on">
+                                        Last updated on{" "}
+                                        <FormattedDate date={updatedDate} />
+                                    </div>
+                                </>
+                            )
+                        }
+                        <span>•</span>
+                        <span>{readingTime}</span>
+                    </div>
+                    <hr />
+                </div>
+                <div class="prose">
+                    <slot />
+                </div>
+            </article>
+        </main>
+    </body>
 </html>

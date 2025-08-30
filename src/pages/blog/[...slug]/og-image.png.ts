@@ -1,7 +1,6 @@
 import fs from "fs/promises";
 import satori from "satori";
 import sharp from "sharp";
-import type { APIRoute } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import { findLargestUsableFontSize } from "@altano/satori-fit-text";
 
@@ -11,14 +10,14 @@ interface Props {
 
 export const GET = async function get({ props }: Props) {
   const cgBoldFontData = await fs.readFile(
-    "./public/fonts/CabinetGrotesk-Bold.woff"
+    "./public/fonts/CabinetGrotesk-Bold.woff",
   );
   const cgRegularFontData = await fs.readFile(
-    "./public/fonts/CabinetGrotesk-Regular.woff"
+    "./public/fonts/CabinetGrotesk-Regular.woff",
   );
 
   const pjsFontData = await fs.readFile(
-    "./public/fonts/PlusJakartaSans-Variable.woff"
+    "./public/fonts/PlusJakartaSans-Variable.woff",
   );
 
   const titleFontSize = await findLargestUsableFontSize({
@@ -34,6 +33,8 @@ export const GET = async function get({ props }: Props) {
 
   const svg = await satori(
     {
+      children: null,
+      key: "",
       type: "div",
       props: {
         style: {
@@ -127,12 +128,12 @@ export const GET = async function get({ props }: Props) {
           style: "normal",
         },
       ],
-    }
+    },
   );
 
   const png = await sharp(Buffer.from(svg)).png().toBuffer();
 
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: {
       "Content-Type": "image/png",
     },

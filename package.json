@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build:rss": "npx ts-node ./src/utils/generate-atom-feed.ts",
+    "build:rss": "npx tsx ./src/utils/generate-atom-feed.ts",
     "build": "astro check && astro build && pnpm run build:rss",
     "preview": "astro preview",
     "astro": "astro"

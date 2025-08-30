@@ -6,14 +6,16 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 export const GET: APIRoute = async function get() {
   const cgBoldFontData = await fs.readFile(
-    "./public/fonts/CabinetGrotesk-Bold.woff"
+    "./public/fonts/CabinetGrotesk-Bold.woff",
   );
   const cgRegularFontData = await fs.readFile(
-    "./public/fonts/CabinetGrotesk-Regular.woff"
+    "./public/fonts/CabinetGrotesk-Regular.woff",
   );
 
   const svg = await satori(
     {
+      children: null,
+      key: "",
       type: "div",
       props: {
         style: {
@@ -97,12 +99,12 @@ export const GET: APIRoute = async function get() {
           style: "normal",
         },
       ],
-    }
+    },
   );
 
   const png = await sharp(Buffer.from(svg)).png().toBuffer();
 
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: {
       "Content-Type": "image/png",
     },
