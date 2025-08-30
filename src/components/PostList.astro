@@ -5,82 +5,90 @@ import FormattedDate from "./FormattedDate.astro";
 const { title, limit } = Astro.props;
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 
 <style>
-  .posts {
-    max-width: 720px;
-    width: fit-content;
-    max-width: 100%;
-    margin: auto;
-  }
-  .posts table {
-    width: fit-content;
-    border-collapse: separate;
-    border-spacing: 0 0.75em;
-  }
-  h3 {
-    display: inline-block;
-  }
-  .date {
-    width: 9ch;
-    font-weight: 300;
-  }
-  tr {
-    vertical-align: top;
-  }
-
-  @media (max-width: 720px) {
     .posts {
-      width: 500px;
+        max-width: 720px;
+        width: fit-content;
+        max-width: 100%;
+        margin: auto;
     }
-    td {
-      font-size: 0.875em;
-      vertical-align: middle;
+    .posts table {
+        width: fit-content;
+        border-collapse: separate;
+        border-spacing: 0.5em 1.75em;
     }
-  }
-
-  @media (max-width: 400px) {
+    h3 {
+        display: inline-block;
+    }
     .date {
-      display: none;
+        width: 9ch;
+        font-weight: 300;
     }
-    li {
-      flex-direction: column;
+    tr {
+        vertical-align: top;
     }
-  }
+
+    @media (max-width: 720px) {
+        .posts {
+            width: 500px;
+        }
+        td {
+            font-size: 0.875em;
+            vertical-align: middle;
+        }
+    }
+
+    @media (max-width: 400px) {
+        .date {
+            display: none;
+        }
+        li {
+            flex-direction: column;
+        }
+    }
 </style>
 
 <section class="posts">
-  <h3>{title ?? "Posts"}</h3>
-  <table>
-    <tbody>
-      {
-        posts
-          .slice(0, Math.min(limit ?? Number.MAX_SAFE_INTEGER, posts.length))
-          .map((post) => (
-            <tr>
-              <>
-                <td class="date">
-                  <FormattedDate date={post.data.pubDate} />
-                </td>
-                <td class="title">
-                  <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-                </td>
-              </>
-            </tr>
-          ))
-      }
-      {
-        limit && posts.length > limit ? (
-          <tr>
-            <td colspan="2">
-              <a href="/blog">See more</a>
-            </td>
-          </tr>
-        ) : undefined
-      }
-    </tbody>
-  </table>
+    <h3>{title ?? "Posts"}</h3>
+    <table>
+        <tbody>
+            {
+                posts
+                    .slice(
+                        0,
+                        Math.min(
+                            limit ?? Number.MAX_SAFE_INTEGER,
+                            posts.length,
+                        ),
+                    )
+                    .map((post) => (
+                        <tr>
+                            <>
+                                <td class="date">
+                                    <FormattedDate date={post.data.pubDate} />
+                                </td>
+                                <td class="title">
+                                    <a href={`/blog/${post.slug}/`}>
+                                        {post.data.title}
+                                    </a>
+                                </td>
+                            </>
+                        </tr>
+                    ))
+            }
+            {
+                limit && posts.length > limit ? (
+                    <tr>
+                        <td colspan="2">
+                            <a href="/blog">See more</a>
+                        </td>
+                    </tr>
+                ) : undefined
+            }
+        </tbody>
+    </table>
 </section>

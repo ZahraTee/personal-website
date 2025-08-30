@@ -1,84 +1,86 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import PostList from '../components/PostList.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import PostList from "../components/PostList.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				display: flex;
-				width: calc(720px - 2em);
-				max-width: 100%;
-				margin: 25vh auto;
-				align-items: center;
-			}
-			h1 {
-				font-size: 4.5em;
-				display: inline-block;
-				line-height: 0.5em;
-				margin-bottom: 0.5em;
-			}
-			@keyframes blink {
-				50% { opacity: 0; }
-			}
-			h1::after {
-				content: '';
-				margin-left: 0.1em;
-				display: inline-block;
-				width: 0.1em;
-				height: 1em;
-				position: relative;
-				bottom: -0.1em;
-				background-color: var(--link-color);
-				animation: blink 1s step-start 0s infinite;
-			}
-			.intro {
-				flex: 0 0 340px;
-			}
-			.intro h2 {
-				font-weight: 400;
-				font-size: 1.25em;
-				margin-bottom: 0;
-				color: #deedeed0;
-			}
-			@media (max-width: 720px) {
-				main {
-					width: calc(100% - 3em);
-					margin: 3em 1.5em;
-					flex-direction: column;
-				}
-				.intro h1 {
-					font-size: 3.5em;
-					min-width: 7ch;
-				}
-				.intro h2 {
-					font-size: 1.25em;
-				}
-				.intro h3 {
-					margin-top: 2em;
-					font-size: 1.25em;
-				}
-				.intro {
-					max-width: 500px;
-					margin: 0 0 2.5em 0;
-					flex: 0;
-				}
-			}
-		</style>
-	</head>
-	<body class="index">
-		<Header hideTitle />
-		<main>
-			<section class="intro">
-				<h1>Zahra Traboulsi</h1>
-				<h2>{SITE_DESCRIPTION}</h2>
-			</section>
-			<PostList title="Latest Posts" limit={4}/>
-		</main>
-	</body>
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            main {
+                display: flex;
+                width: calc(720px - 2em);
+                max-width: 100%;
+                margin: 25vh auto;
+                align-items: center;
+            }
+            h1 {
+                font-size: 4.5em;
+                display: inline-block;
+                line-height: 0.5em;
+                margin-bottom: 0.5em;
+            }
+            @keyframes blink {
+                50% {
+                    opacity: 0;
+                }
+            }
+            h1::after {
+                content: "";
+                margin-left: 0.1em;
+                display: inline-block;
+                width: 0.1em;
+                height: 1em;
+                position: relative;
+                bottom: -0.1em;
+                background-color: var(--link-color);
+                animation: blink 1s step-start 0s infinite;
+            }
+            .intro {
+                flex: 0 0 340px;
+            }
+            .intro h2 {
+                font-weight: 400;
+                font-size: 1.25em;
+                margin-bottom: 0;
+                color: #deedeed0;
+            }
+            @media (max-width: 720px) {
+                main {
+                    width: calc(100% - 3em);
+                    margin: 3em 1.5em;
+                    flex-direction: column;
+                }
+                .intro h1 {
+                    font-size: 3.5em;
+                    min-width: 7ch;
+                }
+                .intro h2 {
+                    font-size: 1.25em;
+                }
+                .intro h3 {
+                    margin-top: 2em;
+                    font-size: 1.25em;
+                }
+                .intro {
+                    max-width: 500px;
+                    margin: 0 0 2.5em 0;
+                    flex: 0;
+                }
+            }
+        </style>
+    </head>
+    <body class="index">
+        <Header hideTitle />
+        <main>
+            <section class="intro">
+                <h1>Zahra Traboulsi</h1>
+                <h2>{SITE_DESCRIPTION}</h2>
+            </section>
+            <PostList title="Latest Posts" limit={4} />
+        </main>
+    </body>
 </html>

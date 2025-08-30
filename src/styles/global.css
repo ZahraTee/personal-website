@@ -2,79 +2,85 @@
 @import url("plus-jakarta-sans.css");
 
 :root {
-  --accent: #5cb397;
-  --accent-dark: #000d8a;
-  --black: 15, 18, 25;
-  --gray: 96, 115, 159;
-  --gray-light: 229, 233, 240;
-  --gray-dark: 34, 41, 57;
-  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
-  --text-color: #deedee;
-  --link-color: #56e6ff99;
-  --heading-font-family: "Cabinet Grotesk", Trebuchet MS, Helvetica, sans-serif;
-  --body-font-family: "Plus Jakarta Sans", -apple-system, system-ui,
-    BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --accent: #33d6f3;
+    --accent-dark: #000d8a;
+    --black: 15, 18, 25;
+    --gray: 96, 115, 159;
+    --gray-light: 229, 233, 240;
+    --gray-dark: 34, 41, 57;
+    --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+    --box-shadow:
+        0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+        0 16px 32px rgba(var(--gray), 33%);
+    --text-color: #deedee;
+    --link-color: #33d6f3;
+    --heading-font-family:
+        "Cabinet Grotesk", Trebuchet MS, Helvetica, sans-serif;
+    --body-font-family:
+        "Plus Jakarta Sans", -apple-system, system-ui, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  text-align: left;
-  background-color: #030203;
-  background-size: 100vw 110vh;
-  background-position: bottom, bottom, bottom, bottom, bottom, top, top, top,
-    top, top, top, top, bottom, bottom;
-  background-image: radial-gradient(at 15% 100%, #13335dd6, transparent 25%),
-    radial-gradient(at 25% 130%, #00a6ff66, transparent 35%),
-    radial-gradient(at 50% 120%, #0022ff66, transparent 40%),
-    radial-gradient(at 60% 130%, #8c00ff66, transparent 20%),
-    radial-gradient(at 90% 120%, #0022ff66, transparent 40%),
-    linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9)),
-    linear-gradient(to top, transparent, #0003 40%),
-    linear-gradient(
-      45deg,
-      transparent,
-      #6143a799 15%,
-      transparent 26%,
-      #7d3600 40%,
-      transparent,
-      #6143a7,
-      transparent
-    ),
-    linear-gradient(
-      to bottom,
-      #ff8000a3,
-      #5c2b25,
-      #872b11c0,
-      #431640,
-      transparent 50%
-    ),
-    radial-gradient(at 0% 0%, #872b1e, transparent 30%),
-    radial-gradient(at 70% 0%, #693654, transparent 30%),
-    radial-gradient(at 90% 0%, #18269a, transparent 20%);
-  background-blend-mode: lighten, lighten, lighten, lighten, lighten, darken,
-    darken, lighten, lighten, lighten, lighten, lighten, lighten;
-  background-repeat: no-repeat;
-  color: var(--text-color);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  font-family: var(--body-font-family);
-  font-size: 16px;
-  font-weight: 350;
-  line-height: 1.5;
-  min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    background-color: #030203;
+    background-size: 100vw 110vh;
+    background-position:
+        bottom, bottom, bottom, bottom, bottom, top, top, top, top, top, top,
+        top, bottom, bottom;
+    background-image:
+        radial-gradient(at 15% 100%, #13335dd6, transparent 25%),
+        radial-gradient(at 25% 130%, #00a6ff66, transparent 35%),
+        radial-gradient(at 50% 120%, #0022ff66, transparent 40%),
+        radial-gradient(at 60% 130%, #8c00ff66, transparent 20%),
+        radial-gradient(at 90% 120%, #0022ff66, transparent 40%),
+        linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9)),
+        linear-gradient(to top, transparent, #0003 40%),
+        linear-gradient(
+            45deg,
+            transparent,
+            #6143a799 15%,
+            transparent 26%,
+            #7d3600 40%,
+            transparent,
+            #6143a7,
+            transparent
+        ),
+        linear-gradient(
+            to bottom,
+            #ff8000a3,
+            #5c2b25,
+            #872b11c0,
+            #431640,
+            transparent 50%
+        ),
+        radial-gradient(at 0% 0%, #872b1e, transparent 30%),
+        radial-gradient(at 70% 0%, #693654, transparent 30%),
+        radial-gradient(at 90% 0%, #18269a, transparent 20%);
+    background-blend-mode:
+        lighten, lighten, lighten, lighten, lighten, darken, darken, lighten,
+        lighten, lighten, lighten, lighten, lighten;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: var(--body-font-family);
+    font-size: 16px;
+    font-weight: 350;
+    line-height: 1.5;
+    min-height: 100vh;
 }
 
 section,
 article {
-  max-width: 720px;
-  margin: 1em auto;
+    max-width: 720px;
+    margin: 1em auto;
 }
 
 h1,
@@ -83,148 +89,153 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--heading-font-family);
-  line-height: 1.2;
-  font-weight: 600;
+    font-family: var(--heading-font-family);
+    line-height: 1.2;
+    font-weight: 600;
 }
 article h2,
 article h3,
 article h4,
 article h5,
 article h6 {
-  margin: 2em 0 1em;
+    margin: 2em 0 1em;
 }
 
 strong,
 b {
-  font-weight: 700;
+    font-weight: 700;
 }
 a {
-  color: var(--text-color);
-  border-bottom: 2px solid var(--link-color);
-  text-decoration: none;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--link-color);
+    text-decoration: none;
 }
 a:hover {
-  color: var(--link-color);
+    color: var(--link-color);
 }
 p {
-  margin-bottom: 1em;
-  font-weight: 350;
+    margin-bottom: 1em;
+    font-weight: 250;
+    letter-spacing: 0.02em;
 }
 textarea {
-  width: 100%;
-  font-size: 16px;
+    width: 100%;
+    font-size: 16px;
 }
 input {
-  font-size: 16px;
+    font-size: 16px;
 }
 table {
-  width: 100%;
+    width: 100%;
 }
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 figure {
-  font-size: 1.125em;
-  font-family: var(--heading-font-family);
-  font-weight: 425;
-  color: #dcafff;
+    font-size: 1.125em;
+    font-family: var(--heading-font-family);
+    font-weight: 425;
+    color: #dcafff;
 }
 code {
-  padding: 2px 5px;
-  background-color: black;
-  border-radius: 2px;
+    padding: 2px 5px;
+    background-color: black;
+    color: #ffeedd;
+    border-radius: 2px;
+    font-size: 0.875em;
 }
 pre {
-  padding: 1.5em;
-  border-radius: 8px;
+    font-size: 0.875em;
+    padding: 1.5em;
+    border-radius: 8px;
 }
 pre > code {
-  all: unset;
+    all: unset;
 }
 .footnotes {
-  border-top: 1px solid color-mix(in srgb, var(--text-color), transparent 50%);
-  font-size: 0.875em;
+    border-top: 1px solid color-mix(in srgb, var(--text-color), transparent 50%);
+    font-size: 0.875em;
 }
 
 .footnotes > ol {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0 0 0 1em;
-  margin: 0;
-  font-size: 1.125em;
-  line-height: 1.5;
-  font-style: oblique;
-  font-family: var(--body-font-family);
+    border-left: 4px solid var(--accent);
+    padding: 0 0 0 1em;
+    margin: 0;
+    font-size: 1.125em;
+    line-height: 1.5;
+    font-style: italic;
+    color: var(--accent);
+    font-family: var(--body-font-family);
 }
 hr {
-  border: none;
-  opacity: 50%;
-  border-top: 1px solid var(--text-color);
-  margin: 1px 0 0;
+    border: none;
+    opacity: 50%;
+    border-top: 1px solid var(--text-color);
+    margin: 2em 0 0;
 }
 ul {
-  list-style-type: square;
-  margin-block-start: 0.5em;
-  padding-inline-start: 32px;
+    list-style-type: square;
+    margin-block-start: 0.5em;
+    padding-inline-start: 32px;
 }
 li {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
 main {
-  margin-top: 4em;
-  animation: fadeInAnimation ease-in 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+    margin-top: 4em;
+    animation: fadeInAnimation ease-in 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 @keyframes fadeInAnimation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @media (prefers-reduced-motion) {
-  h1::after {
-    visibility: hidden;
-  }
+    h1::after {
+        visibility: hidden;
+    }
 }
 
 @media (max-width: 720px) {
-  body {
-    font-size: 18px;
-  }
-  main {
-    margin: 3em 1.5em;
-  }
-  section,
-  article {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-  }
+    body {
+        font-size: 18px;
+    }
+    main {
+        margin: 3em 1.5em;
+    }
+    section,
+    article {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
 }
 
 .sr-only {
-  border: 0;
-  padding: 0;
-  margin: 0;
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
-  clip: rect(1px 1px 1px 1px);
-  /* maybe deprecated but we need to support legacy browsers */
-  clip: rect(1px, 1px, 1px, 1px);
-  /* modern browsers, clip-path works inwards from each corner */
-  clip-path: inset(50%);
-  /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
-  white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+    clip: rect(1px 1px 1px 1px);
+    /* maybe deprecated but we need to support legacy browsers */
+    clip: rect(1px, 1px, 1px, 1px);
+    /* modern browsers, clip-path works inwards from each corner */
+    clip-path: inset(50%);
+    /* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
+    white-space: nowrap;
 }
