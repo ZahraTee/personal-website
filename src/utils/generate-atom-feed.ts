@@ -69,7 +69,7 @@ function markdownToHtml(content: string): string {
     markdown
       .render(content)
       .replace('src="/', `src="${SITE_URL}/`)
-      .replace('href="/', `href="${SITE_URL}/`)
+      .replace('href="/', `href="${SITE_URL}/`),
   );
 }
 
@@ -93,10 +93,11 @@ async function generateAtomFeed() {
   const files = await fg("src/content/blog/*.md");
 
   const postItems: PostData[] = await Promise.all(
-    files.map((file) => buildPostItemFromFile(file))
+    files.map((file) => buildPostItemFromFile(file)),
   );
 
   postItems.sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime());
+  postItems.filter((post) => post.draft !== true);
 
   const latestPubDate = postItems[0].pubDate.toISOString();
 

@@ -4,9 +4,9 @@ import FormattedDate from "./FormattedDate.astro";
 
 const { title, limit } = Astro.props;
 
-const posts = (await getCollection("blog")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (await getCollection("blog"))
+    .filter((p) => p.data.draft !== true)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <style>
