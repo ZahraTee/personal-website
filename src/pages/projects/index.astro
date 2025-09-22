@@ -1,0 +1,114 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            main {
+                width: 100%;
+                padding: 6em 2em;
+                max-width: 900px;
+                display: flex;
+                flex-direction: column;
+                gap: 3em;
+                margin: auto;
+                line-height: 1.6;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            .project {
+                display: flex;
+                gap: 2em;
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                flex: 1;
+            }
+
+            .project > img {
+                height: fit-content;
+                width: 100%;
+                max-width: 480px;
+                object-fit: contain;
+                box-shadow:
+                    inset 0 0 0 1px #fff3,
+                    0 2px 8px rgba(var(--black), 5%);
+                border-radius: 8px;
+            }
+
+            @media (max-width: 820px) {
+                main {
+                    padding: 3em 1em;
+                    align-items: center;
+                    font-size: 16px;
+                }
+                .project {
+                    gap: 1em;
+                    align-items: center;
+                    flex-direction: column-reverse;
+
+                    p {
+                        max-width: 480px;
+                    }
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <Header />
+        <main>
+            <div class="project">
+                <img
+                    src="/mo_cli.png"
+                    alt="Screenshot of mo_cli, a WYSIWG editor for mocking up terminal interfaces."
+                />
+
+                <div class="info">
+                    <h3><a href="https://mocli.zahra.dev">mo_cli</a></h3>
+                    <p>
+                        mo_cli is a web-based design and prototyping tool for
+                        quickly mocking up terminal UIs, previewing them in
+                        different themes and exporting images ready for sharing.
+                    </p>
+
+                    <p>
+                        It's built with React, Tiptap, Zustand, Shadcn and
+                        Tailwind.
+                    </p>
+                </div>
+            </div>
+
+            <div class="project">
+                <img
+                    src="/uktubly.png"
+                    alt="Screenshot of Uktubly, a web app featuring a small canvas with an Arabic letter written on it, alongside a grid of squares containing question marks or Arabic letters."
+                />
+                <div class="info">
+                    <h3><a href="https://uktubly.zahra.dev">uktubly</a></h3>
+                    <p>
+                        An online game to help with writing practice and
+                        memorisation of the Arabic alphabet. It runs a CNN model
+                        in the browser using Tensorflow.js that I trained based
+                        on an open source dataset to recognise handwritten
+                        characters.
+                    </p>
+                    <p>
+                        It uses the tldraw SDK for drawing the characters and
+                        the OffscreenCanvas API to process the drawn characters
+                        and turn them into data to feed to the model.
+                    </p>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
